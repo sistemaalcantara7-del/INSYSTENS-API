@@ -19,6 +19,7 @@ COPY . .
 
 # Gera o Prisma Client apontando para o schema da API
 ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy?schema=public"
+ENV DIRECT_URL="postgresql://dummy:dummy@localhost:5432/dummy?schema=public"
 RUN npx prisma generate --schema=apps/api/prisma/schema.prisma
 
 # Compila o projeto da API
@@ -27,6 +28,7 @@ RUN npm run build -w @electoral-api/api
 # Limpa e instala apenas dependências de produção para otimizar tamanho
 RUN rm -rf node_modules && npm ci --only=production
 ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy?schema=public"
+ENV DIRECT_URL="postgresql://dummy:dummy@localhost:5432/dummy?schema=public"
 RUN npx prisma generate --schema=apps/api/prisma/schema.prisma
 
 # Runtime Stage

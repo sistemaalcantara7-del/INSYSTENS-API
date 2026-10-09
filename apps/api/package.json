@@ -10,11 +10,15 @@
     "lint": "eslint \"src/**/*.ts\"",
     "typecheck": "tsc --noEmit",
     "test:platform": "ts-node src/modules/data-platform/__tests__/run-tests.ts",
+    "db:deploy": "prisma migrate deploy",
+    "db:status": "prisma migrate status",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio"
   },
   "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@fastify/rate-limit": "^8.1.1",
     "@prisma/client": "^5.16.1",
     "dotenv": "^16.4.5",
     "fastify": "^4.28.1",
@@ -23,8 +27,8 @@
   "devDependencies": {
     "@types/node": "^20.14.9",
     "eslint": "^8.57.0",
-    "typescript": "^5.5.2",
+    "pino-pretty": "^11.2.1",
     "ts-node-dev": "^2.0.0",
-    "pino-pretty": "^11.2.1"
+    "typescript": "^5.5.2"
   }
 }

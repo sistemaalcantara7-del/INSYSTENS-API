@@ -11,6 +11,11 @@ declare module 'fastify' {
 }
 
 export async function tenantContext(request: FastifyRequest, reply: FastifyReply) {
+  // Idempotência: se o tenant já foi validado e resolvido em escopo pai, não re-executa queries
+  if (request.tenantId) {
+    return;
+  }
+
   const isProduction = process.env.NODE_ENV === 'production';
   const apiKey = request.headers['x-api-key'] as string;
   const devTenantId = request.headers['x-tenant-id'] as string;

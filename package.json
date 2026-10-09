@@ -16,6 +16,8 @@
     "prisma:generate": "npm run prisma:generate -w @electoral-api/api",
     "prisma:migrate": "npm run prisma:migrate -w @electoral-api/api",
     "prisma:studio": "npm run prisma:studio -w @electoral-api/api",
+    "db:deploy": "npm run db:deploy -w @electoral-api/api",
+    "db:status": "npm run db:status -w @electoral-api/api",
     "importer:dev": "npm run dev -w @electoral-api/importer",
     "importer:build": "npm run build -w @electoral-api/importer",
     "importer:start": "npm run start -w @electoral-api/importer"
